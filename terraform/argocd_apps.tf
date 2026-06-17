@@ -10,13 +10,13 @@ resource "kubernetes_manifest" "argocd_application" {
         apiVersion = "argoproj.io/v1alpha1"
         kind = "Application"
         metadata = {
-            name = "my=app-gitops"
+            name = "my-app-gitops"
             namespace = "argocd"
         }
         spec = {
             project = "default"
             source = {
-                repoURL        = "https://github.com/YOUR_USERNAME/gitops-repo.git" # Replace with your real repo URL
+                repoURL        = "https://github.com/Akshatha-wq/gitops-repo.git" # Replace with your real repo URL
                 targetRevision = "HEAD"
                 path           = "charts/my-app"
             }

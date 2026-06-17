@@ -24,12 +24,14 @@ resource "kubernetes_manifest" "argocd_application" {
                 server    = "https://kubernetes.default.svc"
                 namespace = "production"
             }
-            sync_policy = {
+            syncPolicy = {
                 automated = {
                     prune = true
                     selfHeal = true  # Critical for enabling automated cluster self-healing features
                 }
-                createNamespace = true            
+            syncOptions = [
+                "CreateNamespace=true"
+                ]          
             }
         }
     }
